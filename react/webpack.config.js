@@ -9,7 +9,7 @@ let NODE_ENV = process.env.NODE_ENV || 'development';
 const babelLoader = {
   loader: 'babel-loader',
   options: {
-    presets: ['babel-preset-env', 'react']
+    presets: ['@babel/preset-react']
   }
 };
 
@@ -17,7 +17,7 @@ const plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new HtmlWebpackPlugin({
     title: 'react',
-    template: './app/index.html'
+    template: './src/index.html'
   })
 ];
 
@@ -30,16 +30,16 @@ if (NODE_ENV !== 'development') {
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
-    }),
-    new webpack.optimize.UglifyJsPlugin()
+    })
   );
 }
 
 module.exports = {
-  entry: './app/index.jsx',
+  mode: NODE_ENV,
+  entry: './src/index.jsx',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, './'),
+    path: path.resolve(__dirname, './dist'),
     publicPath: publicPath
   },
   plugins: plugins,
