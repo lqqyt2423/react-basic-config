@@ -10,19 +10,19 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case REQUEST_POSTS:
-      return {
-        ...state,
-        isFetching: true
-      };
-    case RECEIVE_POSTS:
-      return {
-        ...state,
-        isFetching: false,
-        posts: action.posts
-      };
-    default:
-      return state;
+  case REQUEST_POSTS:
+    return {
+      ...state,
+      isFetching: true
+    };
+  case RECEIVE_POSTS:
+    return {
+      ...state,
+      isFetching: false,
+      posts: action.posts
+    };
+  default:
+    return state;
   }
 }
 

@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 import createHistory from 'history/createBrowserHistory';
-import { Route } from 'react-router';
+import { Link, Route } from 'react-router-dom';
 
 import { ConnectedRouter } from 'react-router-redux';
 
@@ -30,7 +30,14 @@ let store = createStore(
 
 function About() {
   return (
-    <p>about page</p>
+    <div>
+      <div>
+        <Link to="/">home</Link>
+        <br />
+        <Link to="/about">about</Link>
+      </div>
+      <h1>about page</h1>
+    </div>
   );
 }
 
@@ -42,7 +49,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>home page</div>
+      <div>
+        <div>
+          <Link to="/">home</Link>
+          <br />
+          <Link to="/about">about</Link>
+        </div>
+        <h1>home page</h1>
+      </div>
     );
   }
 }
